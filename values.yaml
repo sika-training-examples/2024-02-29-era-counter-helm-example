@@ -5,3 +5,5 @@ host:
 EXTRA_TEXT: "Hello ERA"
 backendReplicas: 2
 frontendReplicas: 2
+
+SLOW_START: 10

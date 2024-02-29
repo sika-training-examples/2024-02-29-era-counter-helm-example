@@ -29,3 +29,11 @@ spec:
               value: "#B8173E"
           ports:
             - containerPort: 3000
+          startupProbe:
+            httpGet:
+              path: /
+              port: 3000
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000

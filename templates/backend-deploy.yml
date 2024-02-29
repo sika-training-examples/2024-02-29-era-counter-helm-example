@@ -23,9 +23,19 @@ spec:
               cpu: 50m
               memory: 60Mi
           env:
+            - name: SLOW_START
+              value: {{ .Values.SLOW_START | quote }}
             - name: EXTRA_TEXT
               value: {{ .Values.EXTRA_TEXT }}
             - name: REDIS
               value: {{ .Release.Name }}-redis
           ports:
             - containerPort: 80
+          startupProbe:
+            httpGet:
+              path: /
+              port: 80
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 80
