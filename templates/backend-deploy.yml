@@ -23,6 +23,8 @@ spec:
               cpu: 50m
               memory: 60Mi
           env:
+            - name: EXTRA_TEXT
+              value: {{ .Values.EXTRA_TEXT }}
             - name: REDIS
               value: {{ .Release.Name }}-redis
           ports:
